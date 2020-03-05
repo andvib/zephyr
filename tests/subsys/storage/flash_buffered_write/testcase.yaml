@@ -1,0 +1,12 @@
+tests:
+  storage.flash_buffered_write:
+    platform_whitelist: native_posix native_posix_64
+    tags: flash_buffered_write
+  storage.flash_buffered_write.no_erase:
+    extra_args: OVERLAY_CONFIG=no_erase.overlay
+    platform_whitelist: native_posix native_posix_64
+    tags: flash_buffered_write
+  storage.flash_buffered_write.mpu_allow_flash_write:
+    extra_args: OVERLAY_CONFIG=mpu_allow_flash_write.overlay
+    platform_whitelist:  nrf52840_pca10056
+    tags: flash_buffered_write

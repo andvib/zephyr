@@ -1,0 +1,24 @@
+#
+# Copyright (c) 2020 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+menuconfig FLASH_BUFFERED_WRITE
+	bool "Flash Buffered Write"
+	select FLASH_PAGE_LAYOUT
+	help
+	  Enable support of flash buffered writes
+
+if FLASH_BUFFERED_WRITE
+config FBW_ERASE
+	bool "Perform erase operations"
+	help
+	  If disabled an external actor must erase the flash area being written
+	  to prior to invoking 'fbw_write'.
+
+module = FBW
+module-str = flash buffered write
+source "subsys/logging/Kconfig.template.log_config"
+
+endif # FLASH_BUFFERED_WRITE
